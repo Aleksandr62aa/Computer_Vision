@@ -21,7 +21,7 @@ class VideoSaverNode:
         self.out_file = config["out_file"]
         self._cv2_writer = None
 
-     def process(self, frame_element: FrameElement) -> None:
+    def process(self, frame_element: FrameElement) -> None:
         # Выйти из обработки если это пришел VideoEndBreakElement а не FrameElement
         if isinstance(frame_element, VideoEndBreakElement):
             print(f"Видео сохранено в папке {self.out_folder}")
