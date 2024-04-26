@@ -68,7 +68,7 @@ video_saver_node:
   out_folder : videos_out  # в какую папку сохранить результат
   out_file : result_video.avi  # в в какой файл сохранить результат
 
- send_info_db_node:
+send_info_db_node:
   how_often_add_info: 5  # как часто добавлять новую информацию (раз в столько секунд)
   table_name: traffic_info  # имя таблицы в БД в которую ведем запись
   connection_info:  # данные о подключении (должны совпадать со значениями из docker-compose файла)
