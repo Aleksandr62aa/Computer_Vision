@@ -66,6 +66,8 @@ class VideoReader:
             else:
                 # с видео:
                 timestamp = self.stream.get(cv2.CAP_PROP_POS_MSEC) / 1000
+                if timestamp <= 0:
+                    timestamp = 0
 
                 # делаем костыль, чтобы не было 0-вых тайстампов под конец стрима, баг cv2
                 timestamp = (
