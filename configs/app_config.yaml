@@ -44,7 +44,7 @@ detection_node:
   iou: 0.7  # Порог NMS (чем больше значение, тем больше находит)
   imgsz: 640  # Ресайз при инференсе (640 по умолчанию)
 
-# Использован ByteTrack (https://github.com/ifzhang/ByteTrack)
+
 tracking_node:  
   first_track_thresh: 0.5  # Пороговое значение для первичной инициализации трека
   second_track_thresh: 0.10  # Пороговое значение для поддержания трека
