@@ -13,12 +13,15 @@ class VideoSaverNode:
     """Модуль для сохранения видеопотока"""
 
     def __init__(self, config: dict) -> None:
-        self.fourcc = cv2.VideoWriter_fourcc("m", "p", "4", "v")
+        # self.fourcc = cv2.VideoWriter_fourcc("m", "p", "4", "v")
+        self.fourcc = cv2.VideoWriter_fourcc(*'XVID')
+
         self.fps = config["fps"]
         self.out_folder = config["out_folder"]
+        self.out_file = config["out_file"]
         self._cv2_writer = None
 
-    def process(self, frame_element: FrameElement) -> None:
+     def process(self, frame_element: FrameElement) -> None:
         # Выйти из обработки если это пришел VideoEndBreakElement а не FrameElement
         if isinstance(frame_element, VideoEndBreakElement):
             print(f"Видео сохранено в папке {self.out_folder}")
@@ -27,11 +30,9 @@ class VideoSaverNode:
             frame_element, FrameElement
         ), f"VideoSaverNode | Неправильный формат входного элемента {type(frame_element)}"
 
-        source = frame_element.source
         frame = frame_element.frame_result
-
         if frame is not None:
-            out_file_name = source
+            out_file_name = self.out_file
 
             if self._cv2_writer is None:
                 self._init_cv2_writer(
@@ -55,12 +56,12 @@ class VideoSaverNode:
                 (для формирования названия записывааемого видео).
             fps (float): количество кадров в секунду записываемого видео.
         """
-        out_file_name = os.path.basename(out_file_name)
+        # out_file_name = os.path.basename(out_file_name)
         Path(self.out_folder).mkdir(parents=True, exist_ok=True)
         save_path = f"{self.out_folder}/{out_file_name}"
         self._cv2_writer = cv2.VideoWriter(
             save_path,
-            cv2.VideoWriter_fourcc("m", "p", "4", "v"),
+            self.fourcc,
             fps,
             (frame_width, frame_height),
         )
