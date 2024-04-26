@@ -12,7 +12,7 @@ class ShowNode:
 
     def __init__(self, config) -> None:
         data_colors = config["general"]["colors_of_roads"]
-        self.colors_roads = {key: tuple(value) for key, value in data_colors.items()}
+        self.colors_roads = {int(key): tuple(value) for key, value in data_colors.items()}
         self.buffer_analytics_sec = (
             config["general"]["buffer_analytics"] * 60 + config["general"]["min_time_life_track"]
         )  # столько по времени буфер набирается и информацию о статистеке выводить рано
