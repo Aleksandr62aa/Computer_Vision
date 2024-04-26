@@ -252,11 +252,11 @@ class ShowNode:
             frame_result = np.hstack((frame_result, black_image))
 
         frame_element.frame_result = frame_result
-        frame_show = cv2.resize(frame_result.copy(), (-1, -1), fx=self.scale, fy=self.scale)
+        # frame_show = cv2.resize(frame_result.copy(), (-1, -1), fx=self.scale, fy=self.scale)
 
-        if self.imshow:
-            cv2.imshow(frame_element.source, frame_show)
-            cv2.waitKey(1)
+        # if self.imshow:
+        #     cv2.imshow(frame_element.source, frame_show)
+        #     cv2.waitKey(1)
 
         return frame_element
 
