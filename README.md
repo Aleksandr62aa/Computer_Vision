@@ -60,3 +60,17 @@ graph TD;
     F --show_in_web==True & save_video==False --> L["FlaskServerVideoNode<br>Обновляет кадры в веб-интерфейсе"];
     H --show_in_web==True --> L
 ```
+
+
+```mermaid
+graph TD;
+    A["VideoReader<br>Считывает кадры из видеофайла"] --> B["DetectionTrackingNodes<br>Реализует детектирование машин + трекинг"];
+    B --> C["TrackerInfoUpdateNode<br>Обновляет информацию об актуальных треках"];
+    C --> D["CalcStatisticsNode<br>Вычисляет загруженность дорог"];
+    D --sent_info_db==False --> F;
+    D --sent_info_db==True --> E["SentInfoDBNode<br>Отправляет результаты в базу данных"];
+    E --> F["ShowNode<br>Отображает результаты на экране"];
+    F --save_video==True --> H["VideoSaverNode<br>Сохраняет обработанные кадры"];
+    F --show_in_web==True & save_video==False --> L["FlaskServerVideoNode<br>Обновляет кадры в веб-интерфейсе"];
+    H --show_in_web==True --> L
+```
