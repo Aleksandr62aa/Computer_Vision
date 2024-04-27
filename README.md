@@ -54,9 +54,9 @@ graph TD;
     B --> C["TrackerInfoUpdateNode<br>Обновляет информацию об актуальных треках"];
     C --> D["CalcStatisticsNode<br>Вычисляет загруженность дорог"];     
     D --> F["ShowNode<br>Отображает результаты на экране"];
-    F --save_video==True --> H["VideoSaverNode<br>Сохраняет обработанные кадры"];
-    F --show_in_web==True & save_video==False --> L["FlaskServerVideoNode<br>Обновляет кадры в веб-интерфейсе"];
-    H --show_in_web==True --> L
+    F --> H["VideoSaverNode<br>Сохраняет обработанные кадры"];
+    
+   
 ```
 
 
