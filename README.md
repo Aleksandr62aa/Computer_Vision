@@ -50,10 +50,9 @@ __Пример работы алгоритма c выводом статисти
 
 ```mermaid
 graph TD;
-    A["VideoReader<br>Считывает кадры из видеофайла"] --> B["DetectionTrackingNodes<br>Реализует детектирование машин + трекинг"];
+    A["VideoReader<br>Считывает кадры из видеофайла"] --> B["DetectionTrackingNodes_v1<br>Реализует детектирование машин + трекинг"];
     B --> C["TrackerInfoUpdateNode<br>Обновляет информацию об актуальных треках"];
-    C --> D["CalcStatisticsNode<br>Вычисляет загруженность дорог"];
-    D --sent_info_db==False --> F;
+    C --> D["CalcStatisticsNode<br>Вычисляет загруженность дорог"];   
     D --sent_info_db==True --> E["SentInfoDBNode<br>Отправляет результаты в базу данных"];
     E --> F["ShowNode<br>Отображает результаты на экране"];
     F --save_video==True --> H["VideoSaverNode<br>Сохраняет обработанные кадры"];
