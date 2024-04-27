@@ -65,7 +65,7 @@ show_node:
 
 video_saver_node:
   fps : 24  # при увеличении позволяет ускорить итоговое видео
-  out_folder : videos_out  # в какую папку сохранить результат
+  out_folder : video_out  # в какую папку сохранить результат
   out_file : result_video.avi  # в в какой файл сохранить результат
 
 send_info_db_node:
