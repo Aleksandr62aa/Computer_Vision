@@ -43,8 +43,6 @@ main.ipynb
 __Пример работы алгоритма c выводом статистики__: каждая машина отображается цветом, соответствующим дороге, с которой она прибыла к круговому движению + выводится значение числа видимых машин + значения интенсивности входного потока (число машин в минуту с каждой входящей дороги). <br/>Отображается таким образом при выборе в конфигурации show_node.show_info_statistics=True 
 
 ![Traffic statistics_1](video_out/result_video.gif)
-![Traffic statistics 1](content_for_readme/with_statistics_1.gif)
-![Traffic statistics 2](content_for_readme/with_statistics_2.gif)
 
 ## Реализация кода:
 
